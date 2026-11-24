@@ -4,123 +4,675 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portafolio 👩‍💻</title>
+    <meta name="description"
+        content="Portafolio de Darwin Machuca, desarrollador Full Stack. Proyectos, stack tecnológico y contacto." />
+    <meta name="theme-color" content="#070c0f" />
+    <link rel="icon" href="./src/storage/img/favicon.svg" type="image/svg+xml" />
+    <title>Darwin Machuca | Desarrollador Full Stack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="./src/css/style.css" />
+    <script>
+        (function () {
+            document.documentElement.classList.add("js");
+            try {
+                var guardado = localStorage.getItem("tema-claro");
+                var claro = guardado === null
+                    ? window.matchMedia("(prefers-color-scheme: light)").matches
+                    : guardado === "true";
+                if (claro) document.documentElement.classList.add("tema-claro");
+
+                window.setTimeout(function () {
+                    if (!window.__revelarIniciado) {
+                        document.documentElement.classList.add("sin-reveal");
+                    }
+                }, 2500);
+            } catch (error) {
+                /* Si el almacenamiento está bloqueado, se mantiene el tema oscuro. */
+            }
+        })();
+    </script>
 </head>
 
+<body>
+    <svg class="svg-sprite" aria-hidden="true" focusable="false">
+        <symbol id="icono-github" viewBox="0 0 16 16">
+            <path fill="currentColor"
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+        </symbol>
+        <symbol id="icono-instagram" viewBox="0 0 24 24">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5" fill="none" stroke="currentColor"
+                stroke-width="1.8" />
+            <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8" />
+            <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" />
+        </symbol>
+        <symbol id="icono-email" viewBox="0 0 24 24">
+            <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" fill="none" stroke="currentColor"
+                stroke-width="1.8" />
+            <path d="m3.5 7 8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icono-telefono" viewBox="0 0 24 24">
+            <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"
+                fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icono-ubicacion" viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linejoin="round" />
+            <circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.8" />
+        </symbol>
+        <symbol id="icono-codigo" viewBox="0 0 24 24">
+            <path d="m16 18 6-6-6-6M8 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icono-sol" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </symbol>
+        <symbol id="icono-luna" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icono-menu" viewBox="0 0 24 24">
+            <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" />
+        </symbol>
+        <symbol id="icono-cerrar" viewBox="0 0 24 24">
+            <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" />
+        </symbol>
+        <symbol id="icono-flecha-abajo" viewBox="0 0 24 24">
+            <path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icono-flecha-derecha" viewBox="0 0 24 24">
+            <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icono-externo" viewBox="0 0 24 24">
+            <path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5M15 3h6v6M10 14 21 3" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+    </svg>
 
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
-<body class="dark-mode">
-    <video autoplay muted loop id="video-fondo">
-        <!-- <source src="./src/storage/img/noche.mp4" type="video/mp4"> -->
-    </video>
-    
-    <header class="header">
-        <nav class="navbar">
-            <h1 class="logo">Portafolio de Darwin</h1>
-            <ul class="nav-links">
-                <li><a href="#sobre-mi">Sobre mí</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+    <header class="header" id="header">
+        <nav class="navbar" aria-label="Navegación principal">
+            <a class="logo" href="#inicio" aria-label="Darwin Machuca, ir al inicio">
+                <span class="logo-marca" aria-hidden="true">DM</span>
+                <span class="logo-texto">Darwin Machuca<span>Full Stack</span></span>
+            </a>
 
-                <li>
-                    <button id="modo-btn" class="modo-btn">
-                        <img id="modo-icono" src="./src/storage/img/sol.png" alt="Cambiar modo" />
-                    </button>
-                </li>
+            <div class="nav-acciones">
+                <button id="modo-btn" class="icono-btn" type="button" aria-label="Activar modo claro">
+                    <svg class="icono-modo icono-modo--sol" aria-hidden="true" focusable="false">
+                        <use href="#icono-sol"></use>
+                    </svg>
+                    <svg class="icono-modo icono-modo--luna" aria-hidden="true" focusable="false">
+                        <use href="#icono-luna"></use>
+                    </svg>
+                </button>
+                <button id="menu-btn" class="icono-btn menu-btn" type="button" aria-label="Abrir menú"
+                    aria-expanded="false" aria-controls="menu-principal">
+                    <svg class="icono-menu" aria-hidden="true" focusable="false">
+                        <use href="#icono-menu"></use>
+                    </svg>
+                    <svg class="icono-menu icono-menu--cerrar" aria-hidden="true" focusable="false">
+                        <use href="#icono-cerrar"></use>
+                    </svg>
+                </button>
+            </div>
+
+            <ul class="nav-links" id="menu-principal" role="list">
+                <li><a class="nav-link activo" href="#inicio" aria-current="location">Inicio</a></li>
+                <li><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+                <li><a class="nav-link" href="#stack">Stack</a></li>
+                <li><a class="nav-link" href="#proyectos">Proyectos</a></li>
+                <li><a class="nav-link" href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="sobre-mi">
-            <div class="presentacion">
-                <div class="foto-container">
-                    <img src="./src/storage/img/foto-perfil.jpg" class="foto-perfil" />
+    <main id="contenido" tabindex="-1">
+        <section id="inicio" class="hero" aria-labelledby="hero-titulo">
+            <div class="hero-grilla container">
+                <div class="hero-contenido">
+                    <p class="hero-saludo"><span class="hero-punto" aria-hidden="true"></span> Hola, soy Darwin
+                        Machuca</p>
+                    <h1 id="hero-titulo">Desarrollador<br /><span class="texto-gradiente">Full Stack</span></h1>
+                    <p class="hero-lema">Curioso por naturaleza. Explorando todas las pilas tecnológicas.</p>
+                    <p class="hero-descripcion">
+                        Construyo experiencias web de punta a punta: interfaces que se sienten bien, lógica que
+                        resuelve y datos que tienen sentido. Aprendo construyendo, un proyecto a la vez.
+                    </p>
+
+                    <div class="hero-acciones">
+                        <a class="btn btn--primario" href="#proyectos">
+                            Ver proyectos
+                            <svg aria-hidden="true" focusable="false">
+                                <use href="#icono-flecha-derecha"></use>
+                            </svg>
+                        </a>
+                        <a class="btn btn--secundario" href="#contacto">Hablemos</a>
+                    </div>
+
+                    <ul class="hero-sociales" role="list" aria-label="Redes y contacto">
+                        <li>
+                            <a href="https://github.com/Darwin-max" target="_blank" rel="noopener noreferrer"
+                                aria-label="GitHub de Darwin Machuca (se abre en una nueva pestaña)">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use href="#icono-github"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/darwinmachuca7/" target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Instagram de Darwin Machuca (se abre en una nueva pestaña)">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use href="#icono-instagram"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:kenjimachuca7@gmail.com" aria-label="Enviar correo a Darwin Machuca">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use href="#icono-email"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <h2>¡Hola! Soy Darwin 👋🏻</h2>
-                <p>
-                    Desarrolladora web en formación con muchas ganas de aprender, crecer y crear. Me apasiona
-                    transformar ideas en experiencias digitales que sean atractivas, funcionales y accesibles. Disfruto
-                    cada paso del proceso y me motiva seguir aprendiendo para aportar soluciones reales que conecten con
-                    las personas.
+
+                <div class="hero-visual">
+                    <div class="hero-halo" aria-hidden="true"></div>
+                    <div class="hero-anillo" aria-hidden="true"></div>
+                    <div class="hero-foto-marco">
+                        <img class="hero-foto" src="./src/storage/img/foto-perfil-640.jpg"
+                            srcset="./src/storage/img/foto-perfil-320.jpg 320w, ./src/storage/img/foto-perfil-640.jpg 640w"
+                            sizes="(max-width: 760px) 260px, 400px" alt="Retrato de Darwin Machuca sonriendo"
+                            width="400" height="400" fetchpriority="high" decoding="async" />
+                    </div>
+                    <div class="tech-chip tech-chip--1" aria-hidden="true">
+                        <img src="./src/storage/img/tech/javascript.svg" alt="" width="20" height="20" />
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="tech-chip tech-chip--2" aria-hidden="true">
+                        <img src="./src/storage/img/tech/python.svg" alt="" width="20" height="20" />
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-chip tech-chip--3" aria-hidden="true">
+                        <img src="./src/storage/img/tech/docker.svg" alt="" width="20" height="20" />
+                        <span>Docker</span>
+                    </div>
+                    <div class="tech-chip tech-chip--4" aria-hidden="true">
+                        <img src="./src/storage/img/tech/postgresql.svg" alt="" width="20" height="20" />
+                        <span>PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <a class="hero-scroll" href="#sobre-mi">
+                Desliza para explorar
+                <svg aria-hidden="true" focusable="false">
+                    <use href="#icono-flecha-abajo"></use>
+                </svg>
+            </a>
+        </section>
+
+        <section id="sobre-mi" class="seccion" aria-labelledby="sobre-titulo">
+            <div class="container">
+                <div class="seccion-cabecera reveal">
+                    <p class="seccion-etiqueta"><span class="seccion-numero" aria-hidden="true">01.</span> Sobre mí
+                    </p>
+                    <h2 id="sobre-titulo">Más que una sola capa del stack</h2>
+                    <p class="seccion-intro">
+                        Me interesa entender cómo encajan todas las piezas: la interfaz, la lógica, los datos y el
+                        despliegue.
+                    </p>
+                </div>
+
+                <div class="sobre-grilla">
+                    <div class="sobre-texto reveal">
+                        <p class="sobre-destacado">
+                            Soy Darwin Machuca, desarrollador Full Stack. Disfruto convertir una idea en algo que
+                            funciona y se siente bien al usarlo.
+                        </p>
+                        <p>
+                            No tengo experiencia profesional todavía, y no lo escondo. Lo que sí tengo son proyectos
+                            reales, curiosidad por entender cómo se conectan las tecnologías y la costumbre de aprender
+                            haciendo. Cada proyecto es una excusa para probar algo nuevo y dejar el código un poco
+                            mejor que ayer.
+                        </p>
+                        <p>
+                            Ahora mismo sigo explorando el stack: profundizando en <strong>JavaScript</strong> y
+                            <strong>Node.js</strong>, practicando <strong>SQL</strong> y <strong>PostgreSQL</strong>, y
+                            usando <strong>Docker</strong> para que lo que construyo sea fácil de levantar en cualquier
+                            lugar. También me importa que las interfaces sean claras, responsivas y accesibles.
+                        </p>
+                        <p>
+                            Busco colaborar en proyectos donde pueda aportar, aprender de otras personas y enfrentarme
+                            a retos que me obliguen a salir del piloto automático.
+                        </p>
+
+                        <a class="enlace-flecha" href="#contacto">
+                            ¿Hablamos?
+                            <svg aria-hidden="true" focusable="false">
+                                <use href="#icono-flecha-derecha"></use>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <aside class="perfil-card reveal" aria-label="Resumen del perfil de Darwin Machuca">
+                        <div class="perfil-barra" aria-hidden="true">
+                            <span></span><span></span><span></span>
+                            <span class="perfil-nombre">perfil.json</span>
+                        </div>
+                        <div class="perfil-codigo">
+                            <span class="perfil-llave" aria-hidden="true">{</span>
+                            <dl class="perfil-datos">
+                                <div class="perfil-fila">
+                                    <dt>rol</dt>
+                                    <dd>"Desarrollador Full Stack"</dd>
+                                </div>
+                                <div class="perfil-fila">
+                                    <dt>base</dt>
+                                    <dd>"Colombia"</dd>
+                                </div>
+                                <div class="perfil-fila">
+                                    <dt>enfoque</dt>
+                                    <dd>"aprender construyendo"</dd>
+                                </div>
+                                <div class="perfil-fila">
+                                    <dt>explorando</dt>
+                                    <dd>["Node.js", "PostgreSQL", "Docker"]</dd>
+                                </div>
+                                <div class="perfil-fila">
+                                    <dt>abierto_a</dt>
+                                    <dd>"colaborar y crear"</dd>
+                                </div>
+                            </dl>
+                            <span class="perfil-llave" aria-hidden="true">}</span>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section id="stack" class="seccion seccion--alt" aria-labelledby="stack-titulo">
+            <div class="container">
+                <div class="seccion-cabecera reveal">
+                    <p class="seccion-etiqueta"><span class="seccion-numero" aria-hidden="true">02.</span> Stack</p>
+                    <h2 id="stack-titulo">Tecnologías que uso y sigo explorando</h2>
+                    <p class="seccion-intro">
+                        Prefiero entender el stack completo antes que quedarme en una sola herramienta. Este es el
+                        terreno donde estoy construyendo.
+                    </p>
+                </div>
+
+                <div class="stack-grilla">
+                    <article class="stack-grupo reveal">
+                        <div class="stack-grupo-cabecera">
+                            <span class="stack-grupo-numero" aria-hidden="true">01</span>
+                            <h3>Frontend</h3>
+                        </div>
+                        <p>Interfaces limpias, responsivas y pensadas para las personas.</p>
+                        <ul class="stack-lista" role="list">
+                            <li class="stack-item">
+                                <img src="./src/storage/img/tech/html5.svg" alt="" width="22" height="22"
+                                    loading="lazy" decoding="async" />
+                                <span>HTML5</span>
+                            </li>
+                            <li class="stack-item">
+                                <img src="./src/storage/img/tech/css3.svg" alt="" width="22" height="22"
+                                    loading="lazy" decoding="async" />
+                                <span>CSS3</span>
+                            </li>
+                            <li class="stack-item">
+                                <img src="./src/storage/img/tech/javascript.svg" alt="" width="22" height="22"
+                                    loading="lazy" decoding="async" />
+                                <span>JavaScript</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="stack-grupo reveal">
+                        <div class="stack-grupo-cabecera">
+                            <span class="stack-grupo-numero" aria-hidden="true">02</span>
+                            <h3>Backend</h3>
+                        </div>
+                        <p>Lógica del servidor, automatización y scripts que resuelven.</p>
+                        <ul class="stack-lista" role="list">
+                            <li class="stack-item">
+                                <img src="./src/storage/img/tech/nodejs.svg" alt="" width="22" height="22"
+                                    loading="lazy" decoding="async" />
+                                <span>Node.js</span>
+                            </li>
+                            <li class="stack-item">
+                                <img src="./src/storage/img/tech/python.svg" alt="" width="22" height="22"
+                                    loading="lazy" decoding="async" />
+                                <span>Python</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="stack-grupo reveal">
+                        <div class="stack-grupo-cabecera">
+                            <span class="stack-grupo-numero" aria-hidden="true">03</span>
+                            <h3>Datos</h3>
+                        </div>
+                        <p>Modelado, consultas y persistencia para que la información tenga orden.</p>
+                        <ul class="stack-lista" role="list">
+                            <li class="stack-item">
+                                <img src="./src/storage/img/tech/sql.svg" alt="" width="22" height="22"
+                                    loading="lazy" decoding="async" />
+                                <span>SQL</span>
+                            </li>
+                            <li class="stack-item">
+                                <img src="./src/storage/img/tech/postgresql.svg" alt="" width="22" height="22"
+                                    loading="lazy" decoding="async" />
+                                <span>PostgreSQL</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="stack-grupo reveal">
+                        <div class="stack-grupo-cabecera">
+                            <span class="stack-grupo-numero" aria-hidden="true">04</span>
+                            <h3>Herramientas</h3>
+                        </div>
+                        <p>Entornos reproducibles y control de versiones para trabajar con calma.</p>
+                        <ul class="stack-lista" role="list">
+                            <li class="stack-item">
+                                <img src="./src/storage/img/tech/docker.svg" alt="" width="22" height="22"
+                                    loading="lazy" decoding="async" />
+                                <span>Docker</span>
+                            </li>
+                            <li class="stack-item">
+                                <img src="./src/storage/img/tech/git.svg" alt="" width="22" height="22"
+                                    loading="lazy" decoding="async" />
+                                <span>Git</span>
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+
+                <p class="stack-nota reveal">
+                    <svg aria-hidden="true" focusable="false">
+                        <use href="#icono-codigo"></use>
+                    </svg>
+                    Sigo sumando herramientas. Este stack crece con cada proyecto.
                 </p>
             </div>
+        </section>
 
-            <div class="descripcion">
-                <h2>Sobre mí</h2>
-                <p>
-                    Soy estudiante y entusiasta del desarrollo web, enfocada en construir sitios limpios, responsivos y
-                    bien estructurados. Actualmente me encuentro aprendiendo y perfeccionando tecnologías como HTML, CSS
-                    y JavaScript, fortaleciendo mis habilidades tanto técnicas como creativas. Me encanta trabajar en
-                    equipo, descubrir nuevas herramientas y enfrentar desafíos que me ayuden a seguir creciendo. Este
-                    portafolio es una muestra de mi proceso, mi progreso y mi visión como futura profesional en el mundo
-                    digital.
-                </p>
+        <section id="proyectos" class="seccion" aria-labelledby="proyectos-titulo">
+            <div class="container">
+                <div class="seccion-cabecera reveal">
+                    <p class="seccion-etiqueta"><span class="seccion-numero" aria-hidden="true">03.</span> Proyectos
+                    </p>
+                    <h2 id="proyectos-titulo">Tres proyectos, tres formas de resolver</h2>
+                    <p class="seccion-intro">
+                        No son ejercicios de laboratorio: son ideas que llevé hasta el final y que puedes abrir,
+                        revisar y probar.
+                    </p>
+                </div>
+
+                <div class="proyectos-grilla">
+                    <article class="proyecto reveal">
+                        <div class="proyecto-media">
+                            <img src="./src/storage/img/proyectos/naruto.webp"
+                                alt="Captura de la galería de personajes de Naruto con tarjetas y controles de paginación"
+                                width="1280" height="800" loading="lazy" decoding="async" />
+                            <span class="proyecto-badge">Demo en vivo</span>
+                        </div>
+                        <div class="proyecto-cuerpo">
+                            <p class="proyecto-tipo">Frontend · API</p>
+                            <h3>Galería Naruto</h3>
+                            <p class="proyecto-descripcion">
+                                Galería de personajes que consume una API y pagina los resultados. Practiqué
+                                <em>fetch</em>, renderizado dinámico y manejo de estado con JavaScript puro.
+                            </p>
+                            <ul class="proyecto-tags" role="list" aria-label="Tecnologías usadas">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                                <li>API REST</li>
+                            </ul>
+                            <div class="proyecto-enlaces">
+                                <a class="btn-proyecto" href="https://darwin-max.github.io/dom-pagination-naruto/"
+                                    target="_blank" rel="noopener noreferrer">
+                                    Ver demo
+                                    <svg aria-hidden="true" focusable="false">
+                                        <use href="#icono-externo"></use>
+                                    </svg>
+                                    <span class="sr-only"> (se abre en una nueva pestaña)</span>
+                                </a>
+                                <a class="btn-proyecto btn-proyecto--ghost"
+                                    href="https://github.com/Darwin-max/dom-pagination-naruto" target="_blank"
+                                    rel="noopener noreferrer">
+                                    <svg aria-hidden="true" focusable="false">
+                                        <use href="#icono-github"></use>
+                                    </svg>
+                                    Código
+                                    <span class="sr-only"> (se abre en una nueva pestaña)</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="proyecto reveal">
+                        <div class="proyecto-media">
+                            <img src="./src/storage/img/proyectos/ropa.webp"
+                                alt="Captura de UrbanThreads, tienda de ropa urbana con catálogo de prendas y filtros"
+                                width="1280" height="800" loading="lazy" decoding="async" />
+                            <span class="proyecto-badge">Demo en vivo</span>
+                        </div>
+                        <div class="proyecto-cuerpo">
+                            <p class="proyecto-tipo">E-commerce · UI</p>
+                            <h3>UrbanThreads</h3>
+                            <p class="proyecto-descripcion">
+                                Tienda de ropa urbana con catálogo, detalle de producto y checkout. Construida con HTML
+                                y CSS, cuidando la composición visual y la navegación entre vistas.
+                            </p>
+                            <ul class="proyecto-tags" role="list" aria-label="Tecnologías usadas">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>Diseño responsive</li>
+                            </ul>
+                            <div class="proyecto-enlaces">
+                                <a class="btn-proyecto"
+                                    href="https://darwin-max.github.io/app_de_ecommerce_de_ropa/" target="_blank"
+                                    rel="noopener noreferrer">
+                                    Ver demo
+                                    <svg aria-hidden="true" focusable="false">
+                                        <use href="#icono-externo"></use>
+                                    </svg>
+                                    <span class="sr-only"> (se abre en una nueva pestaña)</span>
+                                </a>
+                                <a class="btn-proyecto btn-proyecto--ghost"
+                                    href="https://github.com/Darwin-max/app_de_ecommerce_de_ropa" target="_blank"
+                                    rel="noopener noreferrer">
+                                    <svg aria-hidden="true" focusable="false">
+                                        <use href="#icono-github"></use>
+                                    </svg>
+                                    Código
+                                    <span class="sr-only"> (se abre en una nueva pestaña)</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="proyecto reveal">
+                        <div class="proyecto-media">
+                            <img src="./src/storage/img/proyectos/delicias.webp"
+                                alt="Vista de terminal del sistema Delicias Caseras con productos, stock y registro de pedidos"
+                                width="1280" height="800" loading="lazy" decoding="async" />
+                            <span class="proyecto-badge proyecto-badge--codigo">Proyecto Python</span>
+                        </div>
+                        <div class="proyecto-cuerpo">
+                            <p class="proyecto-tipo">Python · Lógica</p>
+                            <h3>Delicias Caseras</h3>
+                            <p class="proyecto-descripcion">
+                                Sistema de inventario y pedidos para una panadería. Gestiona productos, stock y
+                                detalles de pedido con persistencia en archivos JSON.
+                            </p>
+                            <ul class="proyecto-tags" role="list" aria-label="Tecnologías usadas">
+                                <li>Python</li>
+                                <li>JSON</li>
+                                <li>Lógica de negocio</li>
+                            </ul>
+                            <div class="proyecto-enlaces">
+                                <a class="btn-proyecto btn-proyecto--ghost"
+                                    href="https://github.com/Darwin-max/delicias_caseras" target="_blank"
+                                    rel="noopener noreferrer">
+                                    <svg aria-hidden="true" focusable="false">
+                                        <use href="#icono-github"></use>
+                                    </svg>
+                                    Ver código
+                                    <span class="sr-only"> (se abre en una nueva pestaña)</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="proyectos-pie reveal">
+                    <p>Hay más experimentos, pruebas y aprendizajes en mi GitHub.</p>
+                    <a class="btn btn--secundario" href="https://github.com/Darwin-max" target="_blank"
+                        rel="noopener noreferrer">
+                        Ver todos los repositorios
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#icono-externo"></use>
+                        </svg>
+                        <span class="sr-only"> (se abre en una nueva pestaña)</span>
+                    </a>
+                </div>
             </div>
         </section>
 
-        <section id="habilidades">
-            <h2>HABILIDADES</h2>
-            <div class="skills-container">
-                <div class="skill">
-                    <img src="./src/storage/img/Html.png" />
-                    <p>HTML</p>
-                </div>
-                <div class="skill">
-                    <img src="./src/storage/img/CSS.png" />
-                    <p>CSS</p>
+        <section id="contacto" class="seccion seccion--contacto" aria-labelledby="contacto-titulo">
+            <div class="container">
+                <div class="seccion-cabecera reveal">
+                    <p class="seccion-etiqueta"><span class="seccion-numero" aria-hidden="true">04.</span> Contacto
+                    </p>
+                    <h2 id="contacto-titulo">¿Construimos algo juntos?</h2>
+                    <p class="seccion-intro">
+                        Estoy abierto a colaborar en proyectos, practicar con nuevos retos o simplemente conversar
+                        sobre tecnología.
+                    </p>
                 </div>
 
-                <div class="skill">
-                    <img src="./src/storage/img/javascrip.webp" />
-                    <p>JavaScript</p>
-                </div>
-                <div class="skill">
-                    <img src="./src/storage/img/python.png" />
-                    <p>Python</p>
+                <div class="contacto-grilla">
+                    <div class="contacto-cta reveal">
+                        <p class="disponibilidad"><span class="punto" aria-hidden="true"></span> Abierto a colaborar</p>
+                        <h3>Un café virtual y unas líneas de código.</h3>
+                        <p>
+                            Cuéntame qué tienes en mente. Puede ser una idea, un proyecto en curso o una duda técnica.
+                            Respondo lo antes que pueda.
+                        </p>
+                        <a class="btn btn--primario"
+                            href="mailto:kenjimachuca7@gmail.com?subject=Hola%20Darwin%2C%20vi%20tu%20portafolio">
+                            Escríbeme
+                            <svg aria-hidden="true" focusable="false">
+                                <use href="#icono-email"></use>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <ul class="contacto-lista" role="list" aria-label="Datos de contacto">
+                        <li class="contacto-item reveal">
+                            <a href="mailto:kenjimachuca7@gmail.com">
+                                <span class="contacto-item-icono" aria-hidden="true">
+                                    <svg focusable="false">
+                                        <use href="#icono-email"></use>
+                                    </svg>
+                                </span>
+                                <span class="contacto-item-texto">
+                                    <strong>Email</strong>
+                                    <small>kenjimachuca7@gmail.com</small>
+                                </span>
+                                <svg class="contacto-item-flecha" aria-hidden="true" focusable="false">
+                                    <use href="#icono-flecha-derecha"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="contacto-item reveal">
+                            <a href="tel:+573124000875">
+                                <span class="contacto-item-icono" aria-hidden="true">
+                                    <svg focusable="false">
+                                        <use href="#icono-telefono"></use>
+                                    </svg>
+                                </span>
+                                <span class="contacto-item-texto">
+                                    <strong>Teléfono</strong>
+                                    <small>+57 312 400 0875</small>
+                                </span>
+                                <svg class="contacto-item-flecha" aria-hidden="true" focusable="false">
+                                    <use href="#icono-flecha-derecha"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="contacto-item reveal">
+                            <a href="https://github.com/Darwin-max" target="_blank" rel="noopener noreferrer">
+                                <span class="contacto-item-icono" aria-hidden="true">
+                                    <svg focusable="false">
+                                        <use href="#icono-github"></use>
+                                    </svg>
+                                </span>
+                                <span class="contacto-item-texto">
+                                    <strong>GitHub</strong>
+                                    <small>Darwin-max <span class="sr-only">(se abre en una nueva pestaña)</span></small>
+                                </span>
+                                <svg class="contacto-item-flecha" aria-hidden="true" focusable="false">
+                                    <use href="#icono-externo"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="contacto-item reveal">
+                            <a href="https://www.instagram.com/darwinmachuca7/" target="_blank"
+                                rel="noopener noreferrer">
+                                <span class="contacto-item-icono" aria-hidden="true">
+                                    <svg focusable="false">
+                                        <use href="#icono-instagram"></use>
+                                    </svg>
+                                </span>
+                                <span class="contacto-item-texto">
+                                    <strong>Instagram</strong>
+                                    <small>darwinmachuca7 <span class="sr-only">(se abre en una nueva
+                                            pestaña)</span></small>
+                                </span>
+                                <svg class="contacto-item-flecha" aria-hidden="true" focusable="false">
+                                    <use href="#icono-externo"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
-        <section id="habilidades">
-            <h2>Proyectos</h2>
-            <div class="skills-container">
-                <div class="skill">
-                    <a href="https://github.com/Darwin-max/dom-pagination-naruto"><img
-                            src="./src/storage/img/github.png" /></a>
-                    <p>Naruto</p>
-                </div>
-                <div class="skill">
-                    <a href="https://github.com/Darwin-max/app_de_ecommerce_de_ropa"><img
-                            src="./src/storage/img/github.png" /></a>
-                    <p>App de ropa</p>
-                </div>
-
-                <div class="skill">
-                    <a href="https://github.com/Darwin-max/delicias_caseras.git"><img
-                            src="./src/storage/img/github.png" /></a>
-                    <p>Delicias caseras</p>
-                </div>
-            </div>
-        </section>
-
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p>📱 Teléfono: <a href="tel:+573124000875">+57 3124000875</a></p>
-        <p><img class="instagram" src="./src/storage/img/github.png"> GitHub: <a
-            href="https://github.com/Darwin-max" target="_blank">Darwin-max</a></p>
-            <p><img class="instagram" src="./src/storage/img/intagram.png">Intagram: <a
-                    href="https://www.instagram.com/darwinmachuca7/" target="_blank">darwinmachuca7</a></p>
-            <p><img class="instagram" src="./src/storage/img/gmail.png">Gmail: <a
-                    href="https://mail.google.com/mail/u/0/#inbox" target="_blank">kenjimachuca7@gmail.com</a></p>
-        </section>
-
-
     </main>
 
     <footer class="footer">
-        <p>© 2025 Darwin - Todos los derechos reservados</p>
+        <div class="footer-contenido container">
+            <a class="logo footer-logo" href="#inicio" aria-label="Volver al inicio">
+                <span class="logo-marca" aria-hidden="true">DM</span>
+                <span class="logo-texto">Darwin Machuca<span>Full Stack</span></span>
+            </a>
+            <p>© <span id="anio">2026</span> Darwin Machuca. Construido con HTML, CSS y JavaScript.</p>
+            <a class="footer-arriba" href="#inicio">
+                Volver arriba
+                <svg aria-hidden="true" focusable="false">
+                    <use href="#icono-flecha-abajo"></use>
+                </svg>
+            </a>
+        </div>
     </footer>
 
     <script src="./src/js/main.js"></script>
